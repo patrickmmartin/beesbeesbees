@@ -19,7 +19,7 @@ def showxy(event):
     window.title(strxy)
 c.bind('<Motion>',showxy)
 
-bee_list=[]
+bee_custome_list=[]
 pos=0,0
 shift_x=20
 x=50
@@ -29,27 +29,27 @@ def bee_costumes():
 
     bee_costume1=PhotoImage(file='bee1.gif')
     bee1=bee_costume1.subsample(5,5)
-    bee_list.append(bee1)
+    bee_custome_list.append(bee1)
 
     bee_costume2=PhotoImage(file='bee2.gif')
     bee2=bee_costume2.subsample(5,5)
-    bee_list.append(bee2)
+    bee_custome_list.append(bee2)
 
-    bee_list.append(bee1)
-    bee_list.append(bee2)
+    bee_custome_list.append(bee1)
+    bee_custome_list.append(bee2)
 
     bee_costume3=PhotoImage(file='bee3.gif')
     bee3=bee_costume3.subsample(5,5)
-    bee_list.append(bee3)
+    bee_custome_list.append(bee3)
 
     bee_costume4=PhotoImage(file='bee4.gif')
     bee4=bee_costume4.subsample(5,5)
-    bee_list.append(bee4)
+    bee_custome_list.append(bee4)
 
-    bee_list.append(bee3)
-    bee_list.append(bee4)
+    bee_custome_list.append(bee3)
+    bee_custome_list.append(bee4)
     
-    return bee_list
+    return bee_custome_list
 
 def do_animation(currentframe):
     global x
@@ -60,7 +60,7 @@ def do_animation(currentframe):
     def do_image(x,shift_x):
 
         frameIndex=(currentframe%3)+(4 if (shift_x<0) else 0)
-        c.create_image(50+x, 170, image=bee_list[frameIndex], tag='current_bee')
+        c.create_image(50+x, 170, image=bee_custome_list[frameIndex], tag='current_bee')
         c.move('current_bee',shift_x,0)
         c.update()
         c.after(1)
@@ -68,7 +68,7 @@ def do_animation(currentframe):
     def do_image2(x,shift_x):
 
         frameIndex=(currentframe%3)+(4 if (shift_x<0) else 0)
-        c.create_image(50+x, 270, image=bee_list[frameIndex], tag='current_bee')
+        c.create_image(50+x, 270, image=bee_custome_list[frameIndex], tag='current_bee')
         c.move('current_bee',shift_x,0)
         c.update()
         c.after(1)
@@ -76,7 +76,7 @@ def do_animation(currentframe):
     def do_image3(x,shift_x):
 
         frameIndex=(currentframe%3)+(4 if (shift_x<0) else 0)
-        c.create_image(50+x, 370, image=bee_list[frameIndex], tag='current_bee')
+        c.create_image(50+x, 370, image=bee_custome_list[frameIndex], tag='current_bee')
         c.move('current_bee',shift_x,0)
         c.update()
         c.after(1)
