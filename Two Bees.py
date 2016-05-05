@@ -52,7 +52,6 @@ def do_animation(currentframe):
         c.after(1)
 
     c.delete('current_bee')
-    bee_costumes()
     do_image(x,shift_x, (0, 0))
     do_image(x,shift_x, (0, 100))
     do_image(x,shift_x, (0, 200))
@@ -68,6 +67,8 @@ def do_animation(currentframe):
     currentframe = currentframe+1
 
     c.after(300,do_animation,currentframe)
+
+bee_costumes()
 
 c.after(1,do_animation,0)
 
