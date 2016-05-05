@@ -42,35 +42,20 @@ def do_animation(currentframe):
     global c
     global pos
     
-    def do_image(x,shift_x):
+    def do_image(x, shift_x, offset):
 
+        x_offset, y_offset = offset
         frameIndex=(currentframe%3)+(4 if (shift_x<0) else 0)
-        c.create_image(50+x, 170, image=bee_custome_list[frameIndex], tag='current_bee')
-        c.move('current_bee',shift_x,0)
-        c.update()
-        c.after(1)
-
-    def do_image2(x,shift_x):
-
-        frameIndex=(currentframe%3)+(4 if (shift_x<0) else 0)
-        c.create_image(50+x, 270, image=bee_custome_list[frameIndex], tag='current_bee')
-        c.move('current_bee',shift_x,0)
-        c.update()
-        c.after(1)
-
-    def do_image3(x,shift_x):
-
-        frameIndex=(currentframe%3)+(4 if (shift_x<0) else 0)
-        c.create_image(50+x, 370, image=bee_custome_list[frameIndex], tag='current_bee')
+        c.create_image(50 + x + x_offset, 170 + y_offset, image=bee_custome_list[frameIndex], tag='current_bee')
         c.move('current_bee',shift_x,0)
         c.update()
         c.after(1)
 
     c.delete('current_bee')
     bee_costumes()
-    do_image(x,shift_x)
-    do_image2(x,shift_x)
-    do_image3(x,shift_x)
+    do_image(x,shift_x, (0, 0))
+    do_image(x,shift_x, (0, 100))
+    do_image(x,shift_x, (0, 200))
 
     if x>650:
         shift_x=-20
