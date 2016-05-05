@@ -27,28 +27,13 @@ y=170
 
 def bee_costumes():
 
-    bee_costume1=PhotoImage(file='bee1.gif')
-    bee1=bee_costume1.subsample(5,5)
-    bee_custome_list.append(bee1)
+    image_list = ['bee1.gif', 'bee2.gif', 'bee3.gif', 'bee4.gif']
 
-    bee_costume2=PhotoImage(file='bee2.gif')
-    bee2=bee_costume2.subsample(5,5)
-    bee_custome_list.append(bee2)
+    for image in image_list:
+        bee_costume = PhotoImage(file = image)
+        bee_sample = bee_costume.subsample(5,5)
+        bee_custome_list.append(bee_sample)
 
-    bee_custome_list.append(bee1)
-    bee_custome_list.append(bee2)
-
-    bee_costume3=PhotoImage(file='bee3.gif')
-    bee3=bee_costume3.subsample(5,5)
-    bee_custome_list.append(bee3)
-
-    bee_costume4=PhotoImage(file='bee4.gif')
-    bee4=bee_costume4.subsample(5,5)
-    bee_custome_list.append(bee4)
-
-    bee_custome_list.append(bee3)
-    bee_custome_list.append(bee4)
-    
     return bee_custome_list
 
 def do_animation(currentframe):
