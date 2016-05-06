@@ -15,9 +15,6 @@ class BeeApp:
 
         self.canvas.pack()
 
-# construct here
-app = BeeApp()
-
 class Bee:
     " TODO(PMM) this class represents a bee sprite "
     def __init__(self, offset):
@@ -35,27 +32,41 @@ class Swarm:
 #    window.title(strxy)
 #c.bind('<Motion>',showxy)
 
-bee_custome_list=[]
-bee_list=[]
 pos=0,0
 shift_x=20
 x=50
 y=170
 
 def bees():
+    result = []
+
     for bindex in range(0, 3):
-        bee_list.append(Bee((0, 100 * bindex)));
+        result.append(Bee((0, 100 * bindex)));
+
+    return result
 
 def bee_costumes():
 
+    result = []
     image_list = ['bee1.gif', 'bee2.gif', 'bee3.gif', 'bee4.gif']
 
     for image in image_list:
         bee_costume = PhotoImage(file = image)
         bee_sample = bee_costume.subsample(5,5)
-        bee_custome_list.append(bee_sample)
+        result.append(bee_sample)
 
-    return bee_custome_list
+    return result
+
+
+# construct here
+app = BeeApp()
+
+# set up costumes
+bee_custome_list = bee_costumes()
+
+# set up bee list
+bee_list = bees()
+
 
 def do_animation(currentframe):
     global x
@@ -89,8 +100,6 @@ def do_animation(currentframe):
 
     app.canvas.after(300,do_animation,currentframe)
 
-bee_costumes()
-bees()
 
 app.canvas.after(1,do_animation,0)
 
