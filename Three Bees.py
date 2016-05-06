@@ -77,7 +77,7 @@ def do_animation(currentframe):
     def do_image(x, shift_x, offset):
 
         x_offset, y_offset = offset
-        frameIndex=(currentframe%3)+(4 if (shift_x<0) else 0)
+        frameIndex = (currentframe % 2) + (2 if (shift_x < 0) else 0)
         app.canvas.create_image(50 + x + x_offset, 170 + y_offset, image=bee_custome_list[frameIndex], tag='current_bee')
         app.canvas.move('current_bee',shift_x,0)
         app.canvas.update()
