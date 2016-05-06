@@ -20,6 +20,9 @@ app = BeeApp()
 
 class Bee:
     " TODO(PMM) this class represents a bee sprite "
+    def __init__(self, offset):
+        self.offset = offset
+        # TODO(PMM) there is clearly scope for more properties in future iterations
 
 class Swarm:
     " TODO(PMM) this class manages a swarm of Bees "
@@ -41,7 +44,7 @@ y=170
 
 def bees():
     for bindex in range(0, 3):
-        bee_list.append((0, 100 * bindex));
+        bee_list.append(Bee((0, 100 * bindex)));
 
 def bee_costumes():
 
@@ -72,7 +75,7 @@ def do_animation(currentframe):
     app.canvas.delete('current_bee')
 
     for bee in bee_list:
-        do_image(x, shift_x, bee)
+        do_image(x, shift_x, bee.offset)
 
     if x>650:
         shift_x=-20
